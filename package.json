@@ -1,0 +1,25 @@
+{
+  "name": "hug_bot",
+  "version": "1.0.0",
+  "description": "A discord bot to hug your friends!",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "hugbot"
+  },
+  "keywords": [
+    "hug",
+    "discord",
+    "bot"
+  ],
+  "author": "Kira L",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "pm2": "^4.5.1"
+  }
+}
