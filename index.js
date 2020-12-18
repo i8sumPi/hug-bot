@@ -1,6 +1,6 @@
 var server = require("express")();
 server.all("/", (req, res)=>{
-    res.send("It's alive!")
+    res.send("It's working!")
 });
 server.listen(3000, ()=>{console.log("Server is Ready!")});
 
@@ -25,6 +25,7 @@ bot.on("message", msg => {
 	if(msg.content == "!hug") return helpPage(msg.channel); //!hug opens up the help page
 
 	var senderNick = msg.member.nickname;
+	if(senderNick == null) senderNick = msg.member.user.username;
 
 	var to = msg.content.slice(5);
 	if(to.slice(0,2)!="<@" || to.slice(-1)!=">") return incorrectPage(msg,msg.channel);
@@ -34,7 +35,7 @@ bot.on("message", msg => {
 	if(isNaN(id)) return incorrectPage(msg,msg.channel);
 
 	var toNick = msg.guild.members.cache.get(id).nickname;
-	if(toNick == null) toNick = msg.guild.members.cache.get(id).user.username
+	if(toNick == null) toNick = msg.guild.members.cache.get(id).user.username;
 
 	hug(senderNick, toNick, msg.channel);
 });
@@ -58,6 +59,8 @@ function hug(sender,to,channel){
 		"Such wholesomeness!",
 		"I want a hug too!",
 		"Adorbs!",
+		"That's so kind!",
+		"That's so nice!",
 		to+", hug back!",
 	];
 	var pic = [
